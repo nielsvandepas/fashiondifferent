@@ -29,16 +29,11 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{
-		$newUser = User::create([
+		return User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => $data['password'],
 		]);
-
-		if (array_key_exists('image', $data))
-			$this->dispatch(new ProcessImage('profile-images', $newUser));
-
-		return $newUser;
 	}
 
 }

@@ -4,6 +4,9 @@ use FashionDifferent\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+
+use FashionDifferent\Commands\ProcessImage;
 
 class AuthController extends Controller {
 
@@ -37,6 +40,35 @@ class AuthController extends Controller {
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
+	}
+
+	/**
+	 * Handle a registration request for the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function postRegister(Request $request)
+	{
+		$validator = $this->registrar->validator($request->all());
+
+		if ($validator->fails())
+		{
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
+
+		$user = $this->registrar->create($request->all());
+
+		$this->auth->login($user);
+
+		// If the user added a profile image, send it to the image
+		// processor, so that file sizes will be reduced
+		if (array_key_exists('image', $request->all()))
+			$this->dispatch(new ProcessImage('profile-images', $user));
+
+		return redirect($this->redirectPath());
 	}
 
 }
