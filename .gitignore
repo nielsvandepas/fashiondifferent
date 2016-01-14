@@ -4,4 +4,6 @@
 .idea
 artisan
 fashiondifferent.iml
+*.DS_Store
 .DS_Store
+composer.lock
