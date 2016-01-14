@@ -10,9 +10,6 @@ use Input;
 
 /**
  * Process an image so that it doesn't consume excessive space and bandwidth.
- *
- * @param string  $destination
- * @return string
  */
 class ProcessImage extends Command implements SelfHandling {
 
@@ -23,8 +20,8 @@ class ProcessImage extends Command implements SelfHandling {
 	/**
 	 * Create a new command instance.
 	 *
-	 * @param string  $destination
-	 * @param \Illuminate\Database\Eloquent\Model  $model
+	 * @param  string  $destination
+	 * @param  \Illuminate\Database\Eloquent\Model  $model
 	 * @return void
 	 */
 	public function __construct($destination, Model $model)
@@ -46,19 +43,20 @@ class ProcessImage extends Command implements SelfHandling {
 	}
 
 	/**
-	 * Execute the command.
+	 * Transform the image.
 	 *
 	 * @return void
 	 */
 	public function handle()
 	{
-		// Transform the image
 		$this->cropImage();
 		$this->resizeImage();
 	}
 
 	/**
 	 * Create the sub-paths used by the image processor if they don't exist.
+	 *
+	 * @return void
 	 */
 	private function createPaths()
 	{
@@ -88,7 +86,7 @@ class ProcessImage extends Command implements SelfHandling {
 	 * Crop the image along its longest side so it is equal to the short
 	 * side of the image, thus creating a perfect square picture.
 	 *
-	 * @param $image
+	 * @return void
 	 */
 	private function cropImage()
 	{
@@ -98,7 +96,9 @@ class ProcessImage extends Command implements SelfHandling {
 	}
 
 	/**
+	 * Resizes the image to be 400 pixels high and 400 pixels wide.
 	 *
+	 * @return void
 	 */
 	private function resizeImage()
 	{
