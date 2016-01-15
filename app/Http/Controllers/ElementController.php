@@ -3,6 +3,7 @@
 namespace FashionDifferent\Http\Controllers;
 
 use FashionDifferent\Commands\AddElement;
+use FashionDifferent\Commands\UpdateElement;
 use Illuminate\Http\Request;
 
 use FashionDifferent\Element;
@@ -108,13 +109,7 @@ class ElementController extends Controller
      */
     public function update(UpdateElementRequest $request, Element $element)
     {
-        $element->fill($request->all());
-		$element->save();
-
-		if (array_key_exists('image', $request->all()))
-			$this->dispatch(new ProcessImage('element-images', $element));
-
-		Flash::success('Your element has been updated successfully!');
+		$this->dispatch(new UpdateElement($request, $element));
 
 		return redirect()->route('element.show', [$element->id]);
     }
