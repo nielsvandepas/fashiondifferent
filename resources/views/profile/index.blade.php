@@ -5,7 +5,7 @@
 @stop
 
 @section('main')
-	<h2>My profile</h2>
+	<h2>My profile</h2><a href="{{ route('profile.edit') }}" title="Edit profile">edit</a>
 	@include('flash::message')
 
 	@include('partials.profile.info')

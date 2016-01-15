@@ -15,10 +15,12 @@ function commentInit( url, user ) {
 
 		methods: {
 			profileImage: function ( user ) {
-				if ( user.profile_image == null )
+				console.log(user);
+
+				if ( user.image == null )
 					return '/images/avatar.png';
 				else
-					return user.profile_image;
+					return '/uploads/profile-images/cropsized/' + user.image;
 			},
 
 			fetchComments: function () {
@@ -77,7 +79,7 @@ function commentAjax( response ) {
 		var newComment = {
 			body: nlToBr( htmlDecode( comment.body ) ),
 			name: comment.user.name,
-			image: profileImage( comment.user ),
+			image: commentVue.profileImage( comment.user ),
 			url: urlBase + chatBase + comment.user.id
 		}
 

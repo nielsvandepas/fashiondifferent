@@ -5,7 +5,7 @@ use FashionDifferent\Events\Event;
 use FashionDifferent\User;
 use Illuminate\Queue\SerializesModels;
 
-use Image;
+use Intervention\Image\Image;
 
 class ImageProcessed extends Event {
 
