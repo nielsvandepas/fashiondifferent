@@ -14,15 +14,6 @@ function commentInit( url, user ) {
 		},
 
 		methods: {
-			profileImage: function ( user ) {
-				console.log(user);
-
-				if ( user.image == null )
-					return '/images/avatar.png';
-				else
-					return '/uploads/profile-images/cropsized/' + user.image;
-			},
-
 			fetchComments: function () {
 				this.$http.get( url + '?since=' + this.sinceId ).then( commentAjax );
 			},
@@ -79,7 +70,7 @@ function commentAjax( response ) {
 		var newComment = {
 			body: nlToBr( htmlDecode( comment.body ) ),
 			name: comment.user.name,
-			image: commentVue.profileImage( comment.user ),
+			image: profileImage( comment.user ),
 			url: urlBase + chatBase + comment.user.id
 		}
 

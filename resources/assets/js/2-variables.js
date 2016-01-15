@@ -11,10 +11,10 @@ Vue.config.debug = true;
 Vue.http.headers.common[ 'X-CSRF-TOKEN' ] = document.querySelector( '#token' ).getAttribute( 'value' );
 
 function profileImage ( user ) {
-	if ( user.profile_image == null )
+	if ( user.image == null )
 		return '/images/avatar.png';
 	else
-		return '/uploads/profile-images/crops/' + user.profile_image;
+		return '/uploads/profile-images/cropsized/' + user.image;
 }
 
 // From here on all code is fetched from the internet
