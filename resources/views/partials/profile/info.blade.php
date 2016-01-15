@@ -6,7 +6,7 @@
 	<br />
 	<p>{{ $user->level() . ' (' . strval($user->points()) . ' points)' }}</p>
 	@if (Auth::check() && $user == Auth::user())
-		<a href="{{ url('profile/logout') }}" title="Logout">logout</a>
+		<a href="{{ url('profile/logout') }}" title="Log out">log out</a>
 	@endif
 	@include('partials.profile.image')
 </div>
