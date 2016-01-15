@@ -3,12 +3,14 @@
 use FashionDifferent\Commands\Command;
 
 use FashionDifferent\Element;
+use FashionDifferent\Events\ElementAdded;
 use FashionDifferent\Http\Requests\ElementRequest;
 use FashionDifferent\User;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 
 use Flash;
+use Event;
 
 class AddElement extends Command implements SelfHandling {
 
@@ -46,6 +48,7 @@ class AddElement extends Command implements SelfHandling {
 			$this->dispatch(new ProcessImage('element-images', $this->element));
 
 		Flash::success($this->element->name . ' has been added successfully!');
+		Event::fire(new ElementAdded($this->element));
 	}
 
 }
