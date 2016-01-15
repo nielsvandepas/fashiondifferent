@@ -26,7 +26,7 @@ class Element extends Model
 
 	public function author()
 	{
-		return $this->belongsTo('\FashionDifferent\User');
+		return $this->belongsTo('\FashionDifferent\User', 'user_id', 'id');
 	}
 
 	public function comments()
