@@ -3,9 +3,12 @@
 use FashionDifferent\Commands\Command;
 
 use FashionDifferent\Element;
+use FashionDifferent\Events\ElementUpdated;
 use FashionDifferent\Http\Requests\UpdateElementRequest;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesCommands;
+
+use Event;
 
 class UpdateElement extends Command implements SelfHandling {
 
@@ -38,7 +41,8 @@ class UpdateElement extends Command implements SelfHandling {
 		if (array_key_exists('image', $this->request->all()))
 			$this->dispatch(new ProcessImage('element-images', $this->element));
 
-		Flash::success('Your element has been updated successfully!');
+		Flash::success($this->element->name . ' has been updated successfully!');
+		Event::fire(new ElementUpdated($this->element));
 	}
 
 }

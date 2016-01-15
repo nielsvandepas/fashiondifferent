@@ -103,7 +103,7 @@ class ElementTypeTableSeeder extends Seeder
 		]);
 
 		ElementType::create([
-			'type'		=> 'other trouser',
+			'type'		=> 'other trousers',
 			'plural'	=> 'other trousers',
 			'category'	=> 'trousers'
 		]);

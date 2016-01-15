@@ -4,7 +4,6 @@ use FashionDifferent\User;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Hash;
 
 
 class UserTableSeeder extends Seeder
@@ -17,7 +16,7 @@ class UserTableSeeder extends Seeder
 			'id'		=> 1,
 			'name'		=> 'Administrator',
 			'email'		=> 'admin@admin.com',
-			'password'	=> bcrypt('123456')
+			'password'	=> '123456'
 		]);
 
 		$this->command->info('User table has been seeded!');
