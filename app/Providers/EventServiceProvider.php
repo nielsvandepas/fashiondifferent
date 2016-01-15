@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider {
 		'ElementAdded' => [
 
 		],
+
+		'ImageProcessed' => [
+
+		],
 	];
 
 	/**

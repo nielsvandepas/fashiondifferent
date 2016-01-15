@@ -2,11 +2,13 @@
 
 use FashionDifferent\Commands\Command;
 
+use FashionDifferent\Events\ImageProcessed;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
 
+use Event;
 use Image;
 use Input;
 
@@ -42,6 +44,8 @@ class ProcessImage extends Command implements SelfHandling {
 
 		Input::file('image')->move($this->destinationBase, $this->newName);
 		$this->image = Image::make($this->destinationBase . $this->newName);
+
+		Event::fire(new ImageProcessed($this->image));
 	}
 
 	/**
