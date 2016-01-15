@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Add Fashion Element @ Fashion Different
+    Add Fashion Element
 @stop
 
 @section('main')

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	Edit Profile @ Fashion Different
+	Edit Profile
 @stop
 
 @section('main')

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	Register @ Fashion Different
+	Register
 @stop
 
 @section('main')

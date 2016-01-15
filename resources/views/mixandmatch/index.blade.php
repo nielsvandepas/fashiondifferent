@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	Mix and Match @ Fashion Different
+	Mix and Match
 @stop
 
 @section('main')

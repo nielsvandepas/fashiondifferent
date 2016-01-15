@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	About @ Fashion Different
+	About
 @stop
 
 @section('main')

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	My Profile @ Fashion Different
+	My Profile
 @stop
 
 @section('main')

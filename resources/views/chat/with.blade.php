@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Chat with {{ $partner->name }} @ Fashion Different
+    Chat with {{ $partner->name }}
 @stop
 
 @section('main')

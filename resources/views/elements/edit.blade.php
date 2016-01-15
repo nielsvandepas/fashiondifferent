@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Edit {{ $element->id }} @ Fashion Different
+    Edit {{ $element->id }}
 @stop
 
 @section('main')

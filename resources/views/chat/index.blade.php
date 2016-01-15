@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Chat @ Fashion Different
+    Chat
 @stop
 
 @section('main')

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	Wardrobe @ Fashion Different
+	Wardrobe
 @stop
 
 @section('main')

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	Welcome @ Fashion Different
+	Welcome
 @stop
 
 @section('main')
