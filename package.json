@@ -1,9 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "bower": "^1.7.2",
     "del": "^2.2.0",
-    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-copy2": "^0.2.0",
