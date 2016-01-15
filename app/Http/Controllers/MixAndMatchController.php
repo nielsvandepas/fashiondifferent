@@ -20,7 +20,7 @@ class MixAndMatchController extends Controller {
 
 	public function index(ElementCollection $collection)
 	{
-		$random = $collection->getRandom();
+		$random = $collection->random();
 		$top = $random->top;
 		$trousers = $random->trousers;
 		$shoes = $random->shoes;

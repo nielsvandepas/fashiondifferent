@@ -2,6 +2,7 @@
 
 namespace FashionDifferent\Http\Controllers;
 
+use FashionDifferent\Commands\AddElement;
 use Illuminate\Http\Request;
 
 use FashionDifferent\Element;
@@ -10,10 +11,6 @@ use FashionDifferent\Http\Requests;
 use FashionDifferent\Http\Requests\ElementRequest;
 use FashionDifferent\Http\Requests\UpdateElementRequest;
 use FashionDifferent\Http\Controllers\Controller;
-
-use FashionDifferent\Services\ImageService;
-
-use Carbon\Carbon;
 
 use Auth;
 use Flash;
@@ -63,11 +60,7 @@ class ElementController extends Controller
      */
     public function store(ElementRequest $request, Element $element)
     {
-        $element->fill($request->all());
-		$element->image = ImageService::processImage('element-images');
-		Auth::user()->elements()->save($element);
-
-		Flash::success('Your element has been added successfully!');
+		$this->dispatch(new AddElement($request, $element, Auth::user()));
 
 		return redirect()->route('element.show', [$element->id]);
     }
@@ -116,11 +109,10 @@ class ElementController extends Controller
     public function update(UpdateElementRequest $request, Element $element)
     {
         $element->fill($request->all());
-
-		if (!is_null(Input::file('image')))
-			$element->image = ImageService::processImage('element-images');
-
 		$element->save();
+
+		if (array_key_exists('image', $request->all()))
+			$this->dispatch(new ProcessImage('element-images', $element));
 
 		Flash::success('Your element has been updated successfully!');
 

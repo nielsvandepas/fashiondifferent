@@ -11,7 +11,7 @@ class ElementCollection extends Model
 
     protected $table = 'element_collections';
 
-	public function getRandom()
+	public function random()
 	{
 		return RandomizerService::getRandomCollection();
 	}

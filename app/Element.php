@@ -10,7 +10,6 @@ use Auth;
 
 class Element extends Model
 {
-    //protected $table = 'elements';
 
     protected $fillable = [
         'name',
@@ -45,4 +44,5 @@ class Element extends Model
 		else
 			return false;
 	}
+
 }
