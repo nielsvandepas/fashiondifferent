@@ -10,7 +10,7 @@
 	@include('partials.buttons.favourite')
 
     <h2>{{ $element->name }}</h2>
-	<h3>{{ dd($element->author()->all()) }}</h3>
+	<h3>{{ $element->author->name }}</h3>
 	<em>{{ $typeshop }}</em>
     <p>{!! nl2br(htmlspecialchars($element->description)) !!}</p>
 	<img src="{{ '/uploads/element-images/cropsized/' . $element->image }}" alt="{{ $element->name }}" />
