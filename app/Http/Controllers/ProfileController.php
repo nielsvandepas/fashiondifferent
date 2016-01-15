@@ -1,6 +1,7 @@
 <?php namespace FashionDifferent\Http\Controllers;
 
 use FashionDifferent\Commands\ProcessImage;
+use FashionDifferent\Commands\UpdateProfile;
 use FashionDifferent\Http\Requests;
 use FashionDifferent\Http\Controllers\Controller;
 use FashionDifferent\User;
@@ -52,22 +53,7 @@ class ProfileController extends Controller {
 	 */
 	public function update(Request $request)
 	{
-		$profile = Auth::user();
-
-		$profile->name = $request->name;
-		$profile->email = $request->email;
-
-		if ($request->password != '')
-			$profile->password = $request->password;
-
-		$profile->save();
-
-		// If the user added a profile image, send it to the image
-		// processor, so that file sizes will be reduced
-		if (array_key_exists('image', $request->all()))
-			$this->dispatch(new ProcessImage('profile-images', $profile));
-
-		Flash::success('Your profile has been updated successfully!');
+		$this->dispatch(new UpdateProfile($request, Auth::user()));
 
 		return redirect()->route('profile.index');
 	}
