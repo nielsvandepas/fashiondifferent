@@ -2,7 +2,7 @@
 	"name": "fashiondifferent/fashiondifferent",
 	"description": "The Fashion Different site",
 	"keywords": ["laravel", "fashiondifferent", "collections"],
-	"license": "MIT",
+	"license": "CC BY-NC-SA",
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
