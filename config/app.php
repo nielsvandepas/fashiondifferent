@@ -142,6 +142,7 @@ return [
 		 */
 		'FashionDifferent\Providers\AppServiceProvider',
 		'FashionDifferent\Providers\BusServiceProvider',
+		'FashionDifferent\Providers\ComposerServiceProvider',
 		'FashionDifferent\Providers\ConfigServiceProvider',
 		'FashionDifferent\Providers\EventServiceProvider',
 		'FashionDifferent\Providers\RouteServiceProvider',

@@ -12,6 +12,9 @@
 	</section>
 	<section id="inspire-section">
 		<div id="home-image"></div>
+
+		@include('partials.quote')
+
 		<nav><a href="{{ route('element.index') }}" title="Inspire me">inspire me</a></nav>
 		<a name="down"></a>
 	</section>

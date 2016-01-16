@@ -4,6 +4,7 @@ use FashionDifferent\Http\Requests;
 use FashionDifferent\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class PagesController extends Controller {
 
