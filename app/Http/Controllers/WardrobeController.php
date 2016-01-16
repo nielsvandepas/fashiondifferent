@@ -11,10 +11,7 @@ class WardrobeController extends Controller {
 
 	public function index()
 	{
-		$elements = Element::all(['name', 'description', 'image', 'type']);
-		$types = ElementType::all();
-
-		return view('wardrobe.index', compact('elements', 'types'));
+		return view('wardrobe.index');
 	}
 
 }
