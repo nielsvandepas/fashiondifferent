@@ -19,7 +19,10 @@ class QuoteComposer
 			['text' => '“Style is knowing who you are, what you want to say, and not giving a damn”', 'by' => 'Orson Welles'],
 			['text' => '“Fashions fade, style is eternal.”', 'by' => 'Yves Saint-Laurent'],
 			['text' => '“Don\'t look to the approval of others for your mental stability”', 'by' => 'Karl Lagerfeld'],
-			['text' => '“...you don\'t have to be perfect to be pretty”', 'by' => 'Carson Kressley']
+			['text' => '“...you don\'t have to be perfect to be pretty”', 'by' => 'Carson Kressley'],
+			['text' => '“Don\'t try to follow trends. Create them.”', 'by' => 'Simon Zingerman'],
+			['text' => '“Be who you are because that\'s you and you are beautiful.”', 'by' => 'Jada Berglund'],
+			['text' => '“Be yourself; everyone else is already taken.”', 'by' => 'Unknown']
 
 		])->random();
 	}
