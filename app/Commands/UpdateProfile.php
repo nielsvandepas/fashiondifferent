@@ -3,9 +3,11 @@
 use FashionDifferent\Commands\Command;
 
 use FashionDifferent\User;
-use FashionDifferent\Http\Requests\Request;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Http\Request;
+
+use Flash;
 
 class UpdateProfile extends Command implements SelfHandling {
 
@@ -17,7 +19,7 @@ class UpdateProfile extends Command implements SelfHandling {
 	/**
 	 * Create a new command instance.
 	 *
-	 * @param  \FashionDifferent\Http\Requests\Request  $request
+	 * @param  \Illuminate\Http\Request  $request
 	 * @param  \FashionDifferent\User  $profile
 	 * @return void
 	 */

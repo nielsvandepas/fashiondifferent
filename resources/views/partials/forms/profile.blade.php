@@ -9,6 +9,6 @@
 		<div class="btn btn-primary btn-file">
 			choose image* {!! Form::file('image') !!}
 		</div>
-		{!! Form::submit('register', ['class' => 'btn btn-primary']) !!}
+		{!! Form::submit($acceptButtonText, ['class' => 'btn btn-primary']) !!}
 	</div>
 {!! Form::close() !!}

@@ -5,5 +5,5 @@
 @stop
 
 @section('main')
-	@include('partials.forms.profile', ['profile' => new FashionDifferent\User, 'target' => 'profile/register', 'method' => null])
+	@include('partials.forms.profile', ['profile' => new FashionDifferent\User, 'target' => 'profile/register', 'method' => null, 'acceptButtonText' => 'register'])
 @stop
