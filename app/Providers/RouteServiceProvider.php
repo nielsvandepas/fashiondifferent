@@ -6,7 +6,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider {
 
 	/**
-	 * This namespace is applied to the controller routes in your routes file.
+	 * This namespace is applied to the controller Routes in your Routes file.
 	 *
 	 * In addition, it is set as the URL generator's root namespace.
 	 *
@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	 * Define the routes for the application.
+	 * Define the Routes for the application.
 	 *
 	 * @param  \Illuminate\Routing\Router  $router
 	 * @return void
@@ -40,7 +40,9 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		$router->group(['namespace' => $this->namespace], function($router)
 		{
-			require app_path('Http/routes.php');
+			require app_path('Http/Routes/Main.php');
+
+			require app_path('Http/Routes/Admin.php');
 		});
 	}
 
