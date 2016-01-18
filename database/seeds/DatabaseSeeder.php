@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder {
 		$this->command->info('Now starting user table seeder...');
 		$this->call('UserTableSeeder');
 
+		$this->command->info('Now starting role table seeder...');
+		$this->call('RoleTableSeeder');
+
 		$this->command->info('Now starting element type table seeder...');
 		$this->call('ElementTypeTableSeeder');
 

@@ -21,7 +21,13 @@ class DummyDataSeeder extends Seeder
 		$this->command->info('Dummy users have been seeded, now proceeding with elements...');
 
 		$this->SeedElements();
-		
+
+		$this->command->info('Elements have been seeded, roles will now be assigned to users...');
+
+		$this->assignRoles();
+
+		$this->command->info('Roles have been assigned!');
+
 		$this->command->info('Dummy data has been seeded!');
 		
 		Model::reguard();
@@ -29,7 +35,7 @@ class DummyDataSeeder extends Seeder
 
 	private function SeedUsers()
 	{
-		$faker = Faker::create('nl_NL');
+		$faker = Faker::create();
 
 		for ($i = 0; $i < 100; $i++)
 		{
@@ -43,7 +49,7 @@ class DummyDataSeeder extends Seeder
 
 	private function SeedElements()
 	{
-		$faker = Faker::create('nl_NL');
+		$faker = Faker::create();
 
 		$types = array('(sun)glasses', 'bag', 'baggy jeans', 'ballerinas', 'blazer', 'boots', 'bracelet', 'crop top', 'dress',
 			'hat', 'hot-pants', 'jeans', 'jogging pants', 'longsleeve t-shirt', 'necklace', 'other accessory', 'other shoes',
@@ -59,6 +65,14 @@ class DummyDataSeeder extends Seeder
 				'user_id'		=> $faker->numberBetween(1, 100),
 				'shop'			=> $faker->company
 			]);
+		}
+	}
+
+	private function assignRoles()
+	{
+		for ($i = 0; $i < 100; $i++)
+		{
+			User::all()->random()->roles()->sync(rand(1, 6), false);
 		}
 	}
 }

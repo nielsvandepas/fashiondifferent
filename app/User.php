@@ -38,6 +38,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		$this->attributes['password'] = Hash::make($password);
 	}
 
+	public function roles()
+	{
+		return $this->belongsToMany('\FashionDifferent\Role')->withTimestamps();
+	}
+
 	public function elements()
 	{
 		return $this->hasMany('\FashionDifferent\Element');
@@ -96,6 +101,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			return 'intermediate';
 		else
 			return 'beginner';
+	}
+
+	/**
+	 * Checks if a user has the specified role.
+	 *
+	 * @param $roleName
+	 * @return mixed
+	 */
+	public function hasRole($roleName)
+	{
+		return $this->roles->keyBy('name')->has($roleName);
 	}
 
 }
