@@ -34,26 +34,6 @@ Route::resource('element.comment', 'ElementCommentController', [
     ]
 ]);
 
-Route::get('chat', ['uses' => 'ChatController@index', 'as' => 'chat.index']);
-Route::get('chat/latest', ['uses' => 'ChatController@latest', 'as' => 'chat.latest']);
-Route::post('chat/{partner}', ['uses' => 'ChatController@store', 'as' => 'chat.create']);
-Route::get('chat/{partner}', ['uses' => 'ChatController@show', 'as' => 'chat.show']);
-Route::get('chat/{partner}/fetch', ['uses' => 'ChatController@fetch', 'as' => 'chat.fetch']);
-
-Route::get('profile/edit', ['uses' => 'ProfileController@edit', 'as' => 'profile.edit']);
-Route::resource('profile', 'ProfileController', [
-	'only'	=> [
-		'index',
-		'update',
-		'destroy'
-	]
-]);
-
-Route::controllers([
-	'profile'	=> 'Auth\AuthController',
-	'password'	=> 'Auth\PasswordController'
-]);
-
 Route::get('wardrobe', ['uses' => 'WardrobeController@index', 'as' => 'wardrobe.index']);
 
 Route::get('mixandmatch', ['uses' => 'MixAndMatchController@index', 'as' => 'mixandmatch.index']);
