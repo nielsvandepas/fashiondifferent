@@ -16,11 +16,11 @@ class DummyDataSeeder extends Seeder
 		
 		$this->command->info('Dummy data will now be seeded into the database...');
 		
-		$this->SeedUsers();
+		$this->seedUsers();
 
 		$this->command->info('Dummy users have been seeded, now proceeding with elements...');
 
-		$this->SeedElements();
+		$this->seedElements();
 
 		$this->command->info('Elements have been seeded, roles will now be assigned to users...');
 
@@ -33,7 +33,7 @@ class DummyDataSeeder extends Seeder
 		Model::reguard();
 	}
 
-	private function SeedUsers()
+	private function seedUsers()
 	{
 		$faker = Faker::create();
 
@@ -47,7 +47,7 @@ class DummyDataSeeder extends Seeder
 		}
 	}
 
-	private function SeedElements()
+	private function seedElements()
 	{
 		$faker = Faker::create();
 
