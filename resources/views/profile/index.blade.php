@@ -36,4 +36,6 @@
 	@else
 		<p>You haven't created any collection yet. You can do so <a href="{{ route('mixandmatch.index') }}" title="Create collection">here</a>.</p>
 	@endif
+
+	@include('partials.quote')
 @stop

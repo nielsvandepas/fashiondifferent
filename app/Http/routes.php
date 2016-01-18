@@ -13,6 +13,7 @@
 
 Route::get('/', ['uses' => 'PagesController@home', 'as' => 'home']);
 Route::get('about', ['uses' => 'PagesController@about', 'as' => 'about']);
+Route::get('terms', ['uses' => 'PagesController@terms', 'as' => 'terms']);
 
 Route::get('element/wardrobe', ['uses' => 'ElementController@wardrobe', 'as' => 'element.wardrobe']);
 
